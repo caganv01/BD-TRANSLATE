@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BD-Translate Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- YÜKLEME EKRANI -->
+  <div id="screen-loading" class="screen active">
+    <div class="loading-container">
+      <div class="logo">BD<span>Translate</span></div>
+      <div class="spinner"></div>
+      <p>Kelimeler yükleniyor...</p>
+    </div>
+  </div>
+
+  <!-- ANA EKRAN -->
+  <div id="screen-home" class="screen">
+    <div class="container">
+      <div class="logo">BD<span>Translate</span></div>
+      <div class="subtitle">Kelime Quiz</div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num" id="totalWords">0</div>
+          <div class="stat-label">Kelime</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="bestScore">0%</div>
+          <div class="stat-label">En İyi Skor</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="totalQuiz">0</div>
+          <div class="stat-label">Quiz</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="startBtn">🎯 Quiz Başlat</button>
+      <button class="btn-secondary" id="syncBtn">🔄 Kelimeleri Güncelle</button>
+
+      <div class="word-list-title">Kelime Listem</div>
+      <div class="word-list" id="wordList"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ EKRANI -->
+  <div id="screen-quiz" class="screen">
+    <div class="container">
+
+      <div class="quiz-header">
+        <div class="quiz-progress-text">
+          <span id="qCurrent">1</span> / <span id="qTotal">10</span>
+        </div>
+        <div class="quiz-scores">
+          <span class="score correct" id="qCorrect">✅ 0</span>
+          <span class="score wrong" id="qWrong">❌ 0</span>
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-type" id="qType">Türkçeye çevir</div>
+        <div class="question-word" id="qWord">apple</div>
+      </div>
+
+      <!-- Yazarak cevap (Tip A) -->
+      <div id="typeA" class="answer-section">
+        <input type="text" class="answer-input" id="answerInput"
+               placeholder="Cevabını yaz..." autocomplete="off" autocorrect="off"/>
+        <div class="feedback" id="feedback"></div>
+        <button class="btn-primary" id="checkBtn">Kontrol Et</button>
+      </div>
+
+      <!-- Şıktan seç (Tip B) -->
+      <div id="typeB" class="answer-section hidden">
+        <div class="choices" id="choices"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SONUÇ EKRANI -->
+  <div id="screen-result" class="screen">
+    <div class="container">
+      <div class="logo">BD<span>Translate</span></div>
+
+      <div class="result-emoji" id="resultEmoji">🏆</div>
+      <div class="result-title" id="resultTitle">Harika!</div>
+      <div class="result-sub" id="resultSub"></div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num green" id="rCorrect">0</div>
+          <div class="stat-label">Doğru</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num red" id="rWrong">0</div>
+          <div class="stat-label">Yanlış</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num yellow" id="rPct">0%</div>
+          <div class="stat-label">Başarı</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="retryBtn">🔄 Tekrar Dene</button>
+      <button class="btn-secondary" id="homeBtn">← Ana Sayfa</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
