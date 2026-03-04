@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "BD-Translate",
+  "version": "1.0",
+  "description": "İngilizce kelimeleri çevir ve kaydet",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.mymemory.translated.net/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

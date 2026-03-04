@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelime Defteri</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 280px;
+      background: #0f0f1a;
+      color: #e0e0e0;
+      font-family: sans-serif;
+      padding: 16px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #a89cff;
+      margin-bottom: 12px;
+    }
+
+    #wordCount {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    #wordList {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 16px;
+    }
+
+    .word-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 8px;
+      background: #1a1a2e;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .word-en { color: #a89cff; font-weight: 700; }
+    .word-tr { color: #e0e0e0; }
+
+    #jsonIndir {
+      width: 100%;
+      padding: 10px;
+      background: #1a1a2e;
+      border: 1px solid #6c63ff;
+      border-radius: 8px;
+      color: #a89cff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+
+    #jsonIndir:hover { background: #6c63ff; color: white; }
+
+    #quizBtn {
+      width: 100%;
+      padding: 10px;
+      background: #6c63ff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #quizBtn:hover { background: #5248cc; }
+    #quizBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <h2>📚 Kelime Defteri</h2>
+  <div id="wordCount">Yükleniyor...</div>
+  <div id="wordList"></div>
+  <button id="jsonIndir">⬇ JSON İndir</button>
+  <button id="quizBtn" disabled>🎯 Quiz Aç</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
