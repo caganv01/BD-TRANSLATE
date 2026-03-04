@@ -4,8 +4,9 @@
   "version": "1.0",
   "description": "İngilizce kelimeleri çevir ve kaydet",
   "permissions": [
-    "storage"
-  ],
+  "storage",
+  "identity"
+],
   "host_permissions": [
     "https://api.mymemory.translated.net/*"
   ],
