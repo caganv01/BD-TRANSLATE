@@ -153,7 +153,12 @@ async function cevirVeGoster(balon, kelime, dilCifti) {
         }
 
         words[temizKelime.toLowerCase()] = temizCeviri;
-        chrome.storage.sync.set({ words }, function() {
+        chrome.storage.sync.set({ words }, async function() {
+        sonuc.querySelector('.kb-ekle').textContent = '⏳ Kaydediliyor...';
+  
+          // GitHub'a da yaz
+          await githubaSenkronEt(words);
+  
           sonuc.querySelector('.kb-ekle').textContent = '✅ Kaydedildi!';
           sonuc.querySelector('.kb-ekle').style.background = '#2ecc71';
           setTimeout(balonuKaldir, 1500);
@@ -173,3 +178,54 @@ document.addEventListener('click', function(e) {
     balonuKaldir();
   }
 });
+// GitHub'daki kelimeler.json dosyasını güncelle
+async function githubaSenkronEt(words) {
+  try {
+    const dosyaYolu = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.dosyaAdi}`;
+
+    // Adım 1: Mevcut dosyanın SHA'sını al
+    const mevcutDosya = await fetch(dosyaYolu, {
+      headers: {
+        'Authorization': `token ${GITHUB_CONFIG.token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    let sha = null;
+    if (mevcutDosya.ok) {
+      const mevcutData = await mevcutDosya.json();
+      sha = mevcutData.sha;
+    }
+
+    // Adım 2: Yeni içeriği Base64'e çevir
+    const icerik = btoa(unescape(encodeURIComponent(
+      JSON.stringify(words, null, 2)
+    )));
+
+    // Adım 3: GitHub API'ye gönder
+    const body = {
+      message: 'Kelime eklendi',
+      content: icerik,
+      sha: sha
+    };
+
+    const guncelle = await fetch(dosyaYolu, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_CONFIG.token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (guncelle.ok) {
+      console.log('✅ GitHub senkronize edildi!');
+    } else {
+      console.error('❌ GitHub sync hatası:', await guncelle.json());
+    }
+
+  } catch(err) {
+    console.error('❌ GitHub sync bağlantı hatası:', err);
+  }
+}
