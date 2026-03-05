@@ -8,7 +8,8 @@
   "identity"
 ],
   "host_permissions": [
-  "https://script.google.com/*"
+  "https://script.google.com/*",
+  "https://script.googleusercontent.com/*"
 ],
   "action": {
     "default_popup": "popup.html"
