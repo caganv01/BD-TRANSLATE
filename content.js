@@ -99,21 +99,13 @@ async function cevirVeGoster(balon, kelime, dilCifti) {
   balon.appendChild(yukleniyor);
 
   try {
-    // Dil çiftini LibreTranslate formatına çevir
-      const [kaynakDil, hedefDil] = dilCifti.split('|');
+    const [kaynakDil, hedefDil] = dilCifti.split('|');
 
-    const response = await fetch('https://libretranslate.com/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        q: kelime,
-        source: kaynakDil,
-        target: hedefDil,
-        format: 'text'
-      })
-    });
-    const data = await response.json();
-    const ceviri = data.translatedText;
+const response = await fetch(
+  `${TRANSLATE_CONFIG.url}?q=${encodeURIComponent(kelime)}&source=${kaynakDil}&target=${hedefDil}`
+);
+const data = await response.json();
+const ceviri = data.ceviri;
 
     const temizKelime = temizle(kelime);
     const temizCeviri = temizle(ceviri);

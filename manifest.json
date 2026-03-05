@@ -8,8 +8,8 @@
   "identity"
 ],
   "host_permissions": [
-    "https://api.mymemory.translated.net/*"
-  ],
+  "https://script.google.com/*"
+],
   "action": {
     "default_popup": "popup.html"
   },
