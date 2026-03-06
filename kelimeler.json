@@ -1,8 +1,9 @@
 {
+  "complexity": "karmaşıklık",
   "domestic": "yerel",
   "explore": "keşfet",
   "regardless": "Ne olursa olsun",
   "root": "kaynak",
   "standalone": "bağımsız",
-  "complexity": "karmaşıklık"
+  "literals": "harfler"
 }
