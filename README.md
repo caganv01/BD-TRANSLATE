@@ -1,57 +1,47 @@
 # BD-Translate
 
-İngilizce okurken karşılaştığın kelimeleri anında çevir, kaydet ve telefonda quiz yaparak öğren.
-
----
+İngilizce makale veya herhangi bir metin okurken anlamını bilmediğin kelimeleri anında öğren isteğine bağlı olarak kaydet ve quiz şeklinde bu kelimeleri tekrar et.
 
 ## Nasıl Çalışır?
 
-**Bilgisayarda:**
-- Herhangi bir sayfada kelimeye çift tıkla
-- Çeviri balonu anında çıkar
-- **+ Ekle** ile kelimeyi defterine kaydet
-- Kelime otomatik olarak GitHub'a yüklenir
+Bilgisayarda herhangi bir sayfada kelimeye çift tıklıyorsun. Çeviri balonu çıkıyor, istersen kelimeyi kaydediyorsun. Kaydettiğin kelimeler otomatik olarak GitHub'daki `kelimeler.json` dosyasına yazılıyor.
 
-**Telefonda:**
-- Quiz sitesini aç
-- Kaydettiğin kelimeler otomatik gelir
-- Quiz yap, öğren!
+Telefonda quiz sitesini açtığında bu kelimeler otomatik geliyor. Quiz başlatıyorsun, kelimeler sana soruluyor, sen yazarak cevap veriyorsun.
 
 ---
 
 ## Kendi Kurulumun İçin
 
-### 1. Google Apps Script Kur
+### 1. Google Apps Script
+
+Çeviri için Google'ın kendi `LanguageApp` servisini kullanıyoruz. Ücretsiz, kayıt gerektirmiyor ama bir Google hesabı lazım.
 
 1. [script.google.com](https://script.google.com) adresine git
-2. **"New project"** oluştur, adını `BD-Translate` yap
+2. Yeni proje oluştur
 3. Şu kodu yapıştır:
 ```javascript
 function doGet(e) {
   const metin = e.parameter.q;
   const kaynak = e.parameter.source || 'en';
   const hedef = e.parameter.target || 'tr';
-  
   const ceviri = LanguageApp.translate(metin, kaynak, hedef);
-  
   return ContentService
     .createTextOutput(JSON.stringify({ ceviri: ceviri }))
     .setMimeType(ContentService.MimeType.JSON);
 }
 ```
 
-4. **Deploy** → **New deployment** → **Web app**
+4. Deploy → Web app olarak yayınla
 5. **Execute as:** Me, **Who has access:** Anyone
-6. Deploy et ve URL'i kopyala
+6. Verilen URL'i kopyala
 
 ---
 
-### 2. GitHub Token Al
+### 2. GitHub Token
 
-1. GitHub → **Settings** → **Developer settings**
-2. **Personal access tokens** → **Tokens (classic)**
-3. **Generate new token** → sadece **`repo`** iznini seç
-4. Token'ı kopyala ve kaydet
+1. GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. Yeni token oluştur, sadece **repo** iznini seç
+3. Token'ı kopyala
 
 ---
 
@@ -65,56 +55,40 @@ cd BD-TRANSLATE
 
 ### 4. config.js Oluştur
 
-Klasörün içine `config.js` adında bir dosya oluştur:
+Klasörün içine `config.js` adında bir dosya oluştur. Bu dosya `.gitignore`'da olduğu için GitHub'a gitmez.
 ```javascript
 const GITHUB_CONFIG = {
-  token: 'GITHUB_TOKENIN',        // 2. adımda aldığın token
-  repo: 'BD-TRANSLATE',           // repo adın
-  owner: 'GITHUB_KULLANICI_ADIN', // GitHub kullanıcı adın
+  token: 'GITHUB_TOKENIN',
+  repo: 'BD-TRANSLATE',
+  owner: 'GITHUB_KULLANICI_ADIN',
   dosyaAdi: 'kelimeler.json'
 };
 
 const TRANSLATE_CONFIG = {
-  url: 'GOOGLE_APPS_SCRIPT_URLIN' // 1. adımda aldığın URL
+  url: 'GOOGLE_APPS_SCRIPT_URLIN'
 };
 ```
-
-> ⚠️ `config.js` zaten `.gitignore`'da — GitHub'a gitmez, token'ın güvende.
 
 ---
 
 ### 5. Tarayıcıya Yükle
 
-**Chrome / Brave / Edge:**
-1. `chrome://extensions` adresine git
-2. Sağ üstte **Developer mode**'u aç
-3. **Load unpacked** → klonladığın klasörü seç
+**Chrome / Brave / Edge**
+`chrome://extensions` → Developer mode aç → Load unpacked → klasörü seç
 
-**Firefox:**
-1. `about:debugging` adresine git
-2. **This Firefox** → **Load Temporary Add-on**
-3. `manifest.json` dosyasını seç
+**Firefox**
+`about:debugging` → This Firefox → Load Temporary Add-on → `manifest.json` seç
 
 ---
 
 ### 6. Quiz Siteni Yayınla
 
-1. GitHub'da reponun **Settings** → **Pages**'e git
-2. Branch: **main**, klasör: **/ (root)** seç
-3. Save — birkaç dakika sonra şu adres aktif olur:
+GitHub reposunda Settings → Pages → Branch: main → Save
+
+Birkaç dakika sonra aktif olur:
 ```
 https://KULLANICI_ADIN.github.io/BD-TRANSLATE/quiz/
 ```
-
----
-
-## Özellikler
-
-- 🌍 Çoklu dil — EN→TR, TR→EN, DE→TR, FR→TR
-- ⚡ Google Translate kalitesinde çeviri
-- 🔄 Otomatik GitHub senkronizasyonu
-- 📱 Mobil uyumlu quiz sitesi
-- ✅ Duplicate kelime kontrolü
 
 ---
 
@@ -133,12 +107,12 @@ https://KULLANICI_ADIN.github.io/BD-TRANSLATE/quiz/
 ## Proje Yapısı
 ```
 BD-Translate/
-  ├── manifest.json   → Extension tanımı
-  ├── content.js      → Çeviri + kaydetme
-  ├── config.js       → Token + API URL (gizli, .gitignore'da)
-  ├── .gitignore      
+  ├── manifest.json
+  ├── content.js
+  ├── config.js        ← gizli, .gitignore'da
+  ├── .gitignore
   └── quiz/
-      ├── index.html  → Quiz arayüzü
-      ├── style.css   → Tasarım
-      └── script.js   → Quiz mantığı
+      ├── index.html
+      ├── style.css
+      └── script.js
 ```
