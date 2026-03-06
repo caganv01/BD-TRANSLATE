@@ -1,5 +1,6 @@
 {
+  "domestic": "yerel",
   "explore": "keşfet",
   "root": "kaynak",
-  "domestic": "yerel"
+  "standalone": "bağımsız"
 }
