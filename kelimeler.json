@@ -9,6 +9,7 @@
   "exclusion": "dışlama",
   "existence": "varoluş",
   "explore": "keşfet",
+  "illustrates": "resimler",
   "ingredient": "bileşen",
   "invalid": "Geçersiz",
   "literals": "harfler",
@@ -25,5 +26,5 @@
   "standalone": "bağımsız",
   "straightforward": "doğrudan",
   "supply": "tedarik",
-  "illustrates": "resimler"
+  "enhancements": "geliştirmeler"
 }
