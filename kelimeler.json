@@ -8,6 +8,7 @@
   "existence": "varoluş",
   "explore": "keşfet",
   "ingredient": "bileşen",
+  "invalid": "Geçersiz",
   "literals": "harfler",
   "obsolete": "modası geçmiş",
   "pickle": "turşu",
@@ -17,5 +18,5 @@
   "restrictions": "kısıtlamalar",
   "root": "kaynak",
   "standalone": "bağımsız",
-  "invalid": "Geçersiz"
+  "supply": "tedarik"
 }
