@@ -15,6 +15,7 @@
   "invalid": "Geçersiz",
   "literals": "harfler",
   "obsolete": "modası geçmiş",
+  "phrase": "ifade etmek",
   "pickle": "turşu",
   "potion": "iksir",
   "predictable": "tahmin edilebilir",
@@ -27,5 +28,5 @@
   "standalone": "bağımsız",
   "straightforward": "doğrudan",
   "supply": "tedarik",
-  "phrase": "ifade etmek"
+  "restriction": "kısıtlama"
 }
