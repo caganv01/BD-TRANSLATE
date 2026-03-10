@@ -12,6 +12,7 @@
   "explore": "keşfet",
   "illustrates": "resimler",
   "ingredient": "bileşen",
+  "instructions": "talimatlar",
   "invalid": "Geçersiz",
   "literals": "harfler",
   "obsolete": "modası geçmiş",
@@ -29,5 +30,5 @@
   "standalone": "bağımsız",
   "straightforward": "doğrudan",
   "supply": "tedarik",
-  "instructions": "talimatlar"
+  "comprehensible": "anlaşılabilir"
 }
