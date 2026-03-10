@@ -17,6 +17,7 @@
   "invalid": "Geçersiz",
   "literals": "harfler",
   "obsolete": "modası geçmiş",
+  "obtained": "elde edildi",
   "phrase": "ifade etmek",
   "pickle": "turşu",
   "potion": "iksir",
@@ -31,5 +32,5 @@
   "standalone": "bağımsız",
   "straightforward": "doğrudan",
   "supply": "tedarik",
-  "obtained": "elde edildi"
+  "abbreviation": "kısaltma"
 }
