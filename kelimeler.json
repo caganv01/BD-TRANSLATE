@@ -1,6 +1,7 @@
 {
   "abbreviation": "kısaltma",
   "abbreviations": "kısaltmalar",
+  "arise": "kalkmak",
   "complexity": "karmaşıklık",
   "comprehensible": "anlaşılabilir",
   "concatenate": "birleştirmek",
@@ -40,5 +41,5 @@
   "synonym": "eş anlamlı",
   "throughout": "boyunca",
   "unraveling": "Çözülme",
-  "arise": "kalkmak"
+  "suffice": "yeterli"
 }
