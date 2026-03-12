@@ -1,6 +1,6 @@
 # BD-Translate
 
-İngilizce makale veya herhangi bir metin okurken anlamını bilmediğin kelimeleri anında öğren isteğine bağlı olarak kaydet ve quiz şeklinde bu kelimeleri tekrar et.
+İngilizce makale veya herhangi bir metin okurken anlamını bilmediğin kelimeleri anında öğren isteğine bağlı olarak kaydet ve quiz şeklinde bu kelimeleri tekrar et.Tarayıcı üzerinden chrome extension olarak kullan.
 
 ## Nasıl Çalışır?
 
