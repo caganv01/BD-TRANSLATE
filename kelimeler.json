@@ -1,6 +1,7 @@
 {
   "abbreviation": "kısaltma",
   "abbreviations": "kısaltmalar",
+  "according": "Binaen",
   "appear": "belli olmak",
   "arise": "kalkmak",
   "aware": "farkında olmak",
@@ -54,5 +55,5 @@
   "synonym": "eş anlamlı",
   "throughout": "boyunca",
   "unraveling": "Çözülme",
-  "according": "Binaen"
+  "inference": "çıkarım"
 }
