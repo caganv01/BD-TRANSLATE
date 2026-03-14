@@ -11,6 +11,8 @@ Telefonda quiz sitesini açtığında bu kelimeler otomatik geliyor. Quiz başla
 ---
 
 ## Kendi Kurulumun İçin
+Bu proje Chrome Web Store'da yayınlı değil. Yerel olarak çalışan bir araç.
+Kullanmak istiyorsan aşağıdaki kurulumu sen de kendi bilgisayarında yapman gerekiyor.
 
 ### 1. Google Apps Script
 
